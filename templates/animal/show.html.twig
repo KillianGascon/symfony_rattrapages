@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Animal{% endblock %}
+
+{% block body %}
+    <h1>Animal</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ animal.id }}</td>
+            </tr>
+            <tr>
+                <th>Numero_identification</th>
+                <td>{{ animal.numeroIdentification }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ animal.nom }}</td>
+            </tr>
+            <tr>
+                <th>Date_de_naissance</th>
+                <td>{{ animal.dateDeNaissance ? animal.dateDeNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_arrivee_zoo</th>
+                <td>{{ animal.dateArriveeZoo ? animal.dateArriveeZoo|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_depart_zoo</th>
+                <td>{{ animal.dateDepartZoo ? animal.dateDepartZoo|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Propriete_zoo</th>
+                <td>{{ animal.proprieteZoo ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ animal.genre }}</td>
+            </tr>
+            <tr>
+                <th>Espece</th>
+                <td>{{ animal.espece }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ animal.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Sterilisation</th>
+                <td>{{ animal.sterilisation ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Quarantaine</th>
+                <td>{{ animal.quarantaine ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_animal_index') }}">back to list</a>
+
+    <a href="{{ path('app_animal_edit', {'id': animal.id}) }}">edit</a>
+
+    {{ include('animal/_delete_form.html.twig') }}
+{% endblock %}
